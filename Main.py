@@ -44,7 +44,8 @@ match input("Usará Bias? [S/N]: ").upper():
 
 taxaAprendizagem = float(input('Digite o valor da taxa de aprendizagem: '))
 
-w = [0.2, 0.2, 0.2, 0.2] #pesos dos Xs e o bias
+w = [0.2, 0.2, 0.2] #pesos dos Xs e o bias
+w.append(0.2) if bias == 1 else None
 fim = False
 erros = [] #lista para armazenar os erros de cada iteração
 numeroIteracao = 0
@@ -57,8 +58,8 @@ while not fim:
         net = 0
 
         xValues = [objeto['X1'], objeto['X2'], objeto['X3'], bias]
-        #if bias:
-        #   xValues.append(bias)
+        xValues.pop() if bias == 0 else None
+        
         for j, x in enumerate(xValues): #pega cada item de x_values (x) e o índice(i)
             net += x * w[j]
             
