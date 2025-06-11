@@ -33,13 +33,14 @@ entradas = {
 }
 
 bias = None
-match input("Usará Bias? [S/N]: ").upper():
-    case 'S':
-        bias = 1
-    case 'N':
-        bias = 0
-    case _:
-        print('inválido')
+while bias == None:
+    match input("Usará Bias? [S/N]: ").upper():
+        case 'S':
+            bias = 1
+        case 'N':
+            bias = 0
+        case _:
+            print('inválido\n')
 
 
 taxaAprendizagem = float(input('Digite o valor da taxa de aprendizagem: '))
